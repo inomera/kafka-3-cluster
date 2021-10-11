@@ -336,6 +336,10 @@ INVALID_QUORUM_STATE: This error code is reserved for cases when a request confl
 INCONSISTENT_VOTER_SET: Used when the request contains inconsistent membership.
 
 
+Port check scripts
+
+Check the 9092, 19092 ports, periodically. 
+
 #12 References
 
     https://github.com/apache/kafka/blob/trunk/config/kraft/README.md
