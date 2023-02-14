@@ -247,7 +247,7 @@ set jdk to path
     export JAVA_HOME=/app/jdk
     export PATH=$PATH:$JAVA_HOME/bin
 
-set kafka hep options
+set kafka heap options
 
     export KAFKA_HEAP_OPTS="-Xmx4096M -Xms512M"
 
