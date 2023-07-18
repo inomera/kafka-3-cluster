@@ -29,7 +29,7 @@ Directory hierarchy
 
 All scripts' paths are depended on the directory hierarchy.
 
-#1 - Download openjdk 11
+# 1 - Download openjdk 11
 
 JDK is a pre-requisite for running kafka
 
@@ -43,7 +43,7 @@ https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz
 
     mv jdk-11 /app/jdk
 
-#2 - Download kafka
+# 2 - Download kafka
 
 download kafka 3.0.0 binary distribution from official site.
 
@@ -55,7 +55,7 @@ https://dlcdn.apache.org/kafka/3.0.0/kafka_2.12-3.0.0.tgz
 
     mv kafka_2.13-3.0.0 kafka3
 
-#3 Create directories for logs, data logs, scripts
+# 3 Create directories for logs, data logs, scripts
 
 create directory for kafka server logs
 
@@ -71,7 +71,7 @@ create directory for scripts
 
     mkdir /app/kafka3/scripts
 
-#4 Configure kafka kraft server properties
+# 4 Configure kafka kraft server properties
 
     cd /app/kafka3/config/kraft
 
@@ -133,13 +133,13 @@ broker.id: The existing broker id config shall be used as the voter id in the Ra
 
 Each node of cluster server1.properties is under the node-{number} folders.
 
-#5 Generate  the cluster id
+# 5 Generate  the cluster id
 
     ./bin/kafka-storage.sh random-uuid
 
 Cluster ID : b42Uz-P1SEyPl5jQdNakTm
 
-#6 Format the storage directories
+# 6 Format the storage directories
 
     $ ./bin/kafka-storage.sh format -t b42Uz-P1SEyPl5jQdNakTm -c ./config/kraft/server1.properties
 
@@ -150,7 +150,7 @@ Output :
 
 Use the cluster id formatting for all nodes.
 
-#7 kafka bash script for operational process
+# 7 kafka bash script for operational process
 
 start, stop, kill, log processes
 
@@ -235,7 +235,7 @@ fi
 
 ```
 
-#8 user .bashrc global variables and shortcut settings
+# 8 user .bashrc global variables and shortcut settings
 
 alias of kafka scripts
 
@@ -251,7 +251,7 @@ set kafka heap options
 
     export KAFKA_HEAP_OPTS="-Xmx4096M -Xms512M"
 
-#9 Define as a system service
+# 9 Define as a system service
 
     [Unit]
     Description=Kafka Service
@@ -269,7 +269,7 @@ set kafka heap options
     WantedBy=default.target
 
 
-#10 start kafka using alias
+# 10 start kafka using alias
 
 kafka start
 
@@ -316,7 +316,7 @@ kafka stop
     [2021-10-09 01:03:13,711] INFO [Controller 1] closed event queue. (org.apache.kafka.queue.KafkaEventQueue)
     [2021-10-09 01:03:13,712] INFO App info kafka.server for 1 unregistered (org.apache.kafka.common.utils.AppInfoParser)
 
-#11 Server alarm log error codes
+# 11 Server alarm log error codes
 
 The operation perspective, tail the logs and match the any of following codes (INVALID_CLUSTER_ID,UNKNOWN_LEADER_EPOCH..) and then alarm is executed.
 
@@ -340,7 +340,7 @@ Port check scripts
 
 Check the 9092, 19092 ports, periodically. 
 
-#12 References
+# 12 References
 
     https://github.com/apache/kafka/blob/trunk/config/kraft/README.md
     https://cwiki.apache.org/confluence/display/KAFKA/KIP-595%3A+A+Raft+Protocol+for+the+Metadata+Quorum
